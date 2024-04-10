@@ -1,13 +1,13 @@
 import React from 'react'
-import {Grid} from '@mui/material'
 import { MainLayout } from '../Layouts/MainLayout'
+import {Grid} from '@mui/material'
 
-export const Home = () => {
+export const Patients = () => {
   return (
     <MainLayout>
         
         <Grid>
-            <h1>Estas en Home</h1>
+            <h1>Estas en Pacientes</h1>
         </Grid>
     </MainLayout>  )
 }

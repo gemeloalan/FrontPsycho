@@ -1,11 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { tokenAuth } from "../apis/localApi";
 
 export const authSlice = createSlice({
   name: "auth",
   initialState: {
     loading:false,
     status: false,
-    uid: null,
+    id: null,
     email: null,
     name: null,
     token: null,
@@ -15,24 +16,27 @@ export const authSlice = createSlice({
     login: (state, { payload }) => {
         state.loading=false,
         state.status = true
+        state.id = payload.id
         state.email = payload.email
         state.name = payload.name
-        state.token = payload.photoUrl
+        state.token = payload.token
+        tokenAuth(payload.token)
     },
-    logout: (state, { payload }) => {
+    salir: (state, { payload }) => {
 
       state.status = false;
       state.loading = false
-      state.uid = null;
+      state.id = null;
       state.email = null;
-      state.displayName = null;
+      state.name = null;
+      state.token = null;
       state.photoUrl = null;
-      state.errorMessage = payload
+      state.errorMessage = null
+      localStorage.setItem("datos", null)
     },
     chekingCredentials: (state, { payload }) => {
         state.loading =true
       state.status = false;
-      localStorage.setItem("user", JSON.stringify(payload));
     },
     load: (state) => {
         state.loading = true;
@@ -43,4 +47,4 @@ export const authSlice = createSlice({
   },
 });
 
-export const { login, logout, chekingCredentials,load,cancel } = authSlice.actions;
+export const { login, salir, chekingCredentials,load,cancel } = authSlice.actions;

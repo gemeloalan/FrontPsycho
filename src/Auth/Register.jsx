@@ -2,14 +2,22 @@ import { Button, Grid, TextField, Typography } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { AuthLayout } from "../Layouts/AuthLayouth";
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import { registrar } from "../store/auth/thunks";
+
 
 export const Register = () => {
+    const navigate = useNavigate();
+    const {loading} = useSelector((state)=>state.auth);
+    const dispatch = useDispatch();
     const { handleSubmit, formState :{errors}, register } = useForm();
     const onSubmit = (data) => {
+dispatch(registrar(data))
         console.log(data)
     };
     return (
-        <AuthLayout title="Iniciar Sesion">
+        <AuthLayout title="Registrate">
             <form onSubmit={handleSubmit(onSubmit)} >
                 <Grid container spacing={2}>
                     <Grid item xs={12} xl={12} md={12} sx={{ mt: 2 }}>
@@ -66,12 +74,12 @@ export const Register = () => {
                         />
                     </Grid>
                     <Grid item xs={6} xl={6}>
-                        <Button fullWidth variant="contained"  >
-                            <Link  to={'/auth/login'}><Typography color="white">Regresar</Typography></Link>
+                        <Button onClick={()=>navigate('/login')} fullWidth variant="contained"  >
+                           Iniciar!!
                         </Button>
                     </Grid>
                     <Grid item xs={6} xl={6}>
-                        <Button fullWidth variant="contained" color="primary" type="submit">
+                        <Button onClick={()=>dispatch} fullWidth variant="contained" color="primary" type="submit">
                             Registrar
                         </Button>
                     </Grid>

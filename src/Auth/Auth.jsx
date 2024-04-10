@@ -24,12 +24,12 @@ export const Auth = () => {
     console.log(data);
     dispatch(checkingAuth(data,navigate));
   };
-  if (loading)return <Load state={loading} />
+//   if (loading)return <Load state={loading} />
 
   return (
     <AuthLayout title="Iniciar Sesion">
       <form onSubmit={handleSubmit(onSubmit)} noValidate>
-        <Grid container spacing={2}>
+        <Grid  container spacing={2}>
           <Grid item xs={12} xl={12} md={12} sx={{ mt: 2 }}>
             <TextField
               {...register("email", {
@@ -44,6 +44,7 @@ export const Auth = () => {
               label="Correo Electronico"
               placeholder="alan@gmail.com"
               fullWidth
+              autoComplete="email"
               error={errors.email}
               helperText={errors?.email?.message}
             />
@@ -58,6 +59,7 @@ export const Auth = () => {
               type={!eye ? "text" : "password"}
               label="Contraseña"
               fullWidth
+              autoComplete="current-password"
               error={errors.password}
               onClick={() => seteye(!eye)}
               InputProps={{
@@ -90,7 +92,7 @@ export const Auth = () => {
             </Button>
           </Grid> */}
           <Grid item>
-            <Link to={"/auth/register"}>
+            <Link to={"/register"}>
               <Typography sx={{ ml: 1 }}>Crear Cuenta</Typography>
             </Link>
           </Grid>
