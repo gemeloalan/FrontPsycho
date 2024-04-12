@@ -1,6 +1,7 @@
 import { Person } from "@mui/icons-material"
 import { Grid, IconButton, Typography } from "@mui/material"
-import fondo from '../assets/buur.jpeg'
+import img from '../assets/gray.jpg'
+import logo from '../assets/xd.jpg'
 
 export const AuthLayout = ({ children, title = '',icon = <Person/> }) => {
   return (
@@ -11,7 +12,7 @@ export const AuthLayout = ({ children, title = '',icon = <Person/> }) => {
       direction={"column"}
       alignItems={"center"}
       justifyContent={"center"}
-      sx={{ minHeight: "100vh", bgcolor:'white', padding: 4, }}
+      sx={{ minHeight: "100vh", bgcolor:'white', padding: 4, backgroundImage: `url(${img})`,backgroundSize:'cover'}}
     >
       <Grid
         item
@@ -20,11 +21,11 @@ export const AuthLayout = ({ children, title = '',icon = <Person/> }) => {
         xs={12}
         md={12}
         sx={{width: {md:450}, 
-          backgroundColor: "white", padding: 3, borderRadius: 2 , boxShadow: '0px 5px 5px black'}}
+          bgcolor:'transparent', padding: 3, borderRadius: 2 , boxShadow: '0px 5px 5px black'}}
       >
-        <IconButton size="medium" sx={{ mb: 1,float:'left', width: '30px',bgcolor: 'gray' }}>
-          {icon}
-          </IconButton>
+        
+        <div style={{ textAlign:'center',marginBottom:'30px',borderRadius:'20px' }}><img src={logo} alt="No esta" width={'100px'} /></div>
+
         <Typography variant="h5" sx={{ mb: 1, textAlign: "center" }}>
           {title}
         </Typography>

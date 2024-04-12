@@ -13,7 +13,7 @@ export const Register = () => {
     const dispatch = useDispatch();
     const { handleSubmit, formState :{errors}, register } = useForm();
     const onSubmit = (data) => {
-dispatch(registrar(data))
+dispatch(registrar(data,navigate))
         console.log(data)
     };
     return (
@@ -79,7 +79,7 @@ dispatch(registrar(data))
                         </Button>
                     </Grid>
                     <Grid item xs={6} xl={6}>
-                        <Button onClick={()=>dispatch} fullWidth variant="contained" color="primary" type="submit">
+                        <Button  fullWidth variant="contained" color="primary" type="submit">
                             Registrar
                         </Button>
                     </Grid>

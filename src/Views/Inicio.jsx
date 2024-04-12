@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid, Button, Typography } from "@mui/material";
-import tridente from "../assets/tridente.jpeg";
+import tridente from "../assets/xd.jpg";
 import fondo from "../assets/buur.jpeg";
 import {useNavigate} from 'react-router-dom'
 
@@ -35,9 +35,9 @@ export const Inicio = () => {
             borderRadius: "20px",
           }}
         >
-          <img src={tridente} width={"100"} alt="No sta"  />
+          <img src={tridente} width={"120pxp"} alt="No sta"  />
         </div>
-        <h1>Psycho Profile</h1>
+        <h1 style={{ textAlign:'center' }}>Psycho Profile</h1>
         <hr />
         <h3>
           Descubre el alma a traves de datos PsychoProfiler, tu aliado psicologo

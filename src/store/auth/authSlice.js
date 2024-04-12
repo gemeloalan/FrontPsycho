@@ -11,9 +11,11 @@ export const authSlice = createSlice({
     name: null,
     token: null,
     errorMessage: null,
+    user: null
   },
   reducers: {
     login: (state, { payload }) => {
+      state.user = payload,
         state.loading=false,
         state.status = true
         state.id = payload.id
@@ -24,6 +26,8 @@ export const authSlice = createSlice({
     },
     salir: (state, { payload }) => {
 
+      state.user = null;
+      state.status = false;
       state.status = false;
       state.loading = false
       state.id = null;

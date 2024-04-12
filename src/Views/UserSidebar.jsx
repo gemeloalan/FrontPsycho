@@ -1,10 +1,12 @@
 import {
     AdminPanelSettings,
     CalendarMonth,
+    DataArray,
     DocumentScanner,
     MapsHomeWork,
     Person,
     QrCode,
+    QuestionAnswer,
     SecurityUpdateWarningSharp,
   } from "@mui/icons-material";
   import {
@@ -14,6 +16,8 @@ import {
   } from "@mui/material";
   import { Link } from "react-router-dom";
   import { Menu, MenuItem, Sidebar, SubMenu } from "react-pro-sidebar";
+import { useState } from "react";
+import { Detail } from "./Pshyco/Detail";
   const menu = [
     {
       name: "Inicio",
@@ -43,6 +47,8 @@ import {
   ];
   
   export const UserSidebar = ({  sideB, toogle }) => {
+    const [open, setOpen] = useState(false);
+
     return (
       <Box component={"nav"}>
         <Sidebar
@@ -68,7 +74,7 @@ import {
           
               <MenuItem
                 icon={<DocumentScanner />}
-                component={<Link to="/" />}
+                component={<Link to="/home" />}
               >
                 Inicio
               </MenuItem>
@@ -84,7 +90,18 @@ import {
               {" "}
               Pacientes
             </MenuItem>
-          </Menu>
+            <MenuItem icon={<QrCode />} component={<Link to="/cita" />}>
+              {" "}
+              Agendar Cita
+            </MenuItem>
+            <MenuItem icon={<QuestionAnswer />} component={<Link to="/welcome" />}>
+              {" "}
+              Mis Preguntas
+            </MenuItem>
+            <MenuItem icon={<DataArray />} onClick={()=>setOpen(!open)}>
+              Acerca de PshycoProfiler
+            </MenuItem>
+          </Menu><Detail open={open} handleClose={()=>setOpen(!open)}/>
         </Sidebar>
   
       </Box>

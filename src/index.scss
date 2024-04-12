@@ -1,0 +1,90 @@
+
+.boxShadow {
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 2);
+}
+.scrolling-text {
+  white-space: nowrap; /* Evita que el texto se divida en múltiples líneas */
+  overflow: hidden; /* Oculta el texto que no cabe en el contenedor */
+  animation: scroll-left 10s linear infinite; /* Nombre de la animación, duración, tipo de animación y repetición infinita */
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%); /* Comienza la animación desde la posición más a la derecha */
+  }
+  100% {
+    transform: translateX(-100%); /* Mueve el texto completamente hacia la izquierda */
+  }
+}
+.Mui-focused {
+  // background-color: white;
+  // transition: background-color 5s ease;
+  // -webkit-transition: background-color 5s ease;
+  // -moz-transition: background-color 5s ease;
+  // -ms-transition: background-color 5s ease;
+  // -o-transition: background-color 5s ease;
+}
+
+/* Definimos el nuevo color de fondo cuando el TextField recibe el foco */
+.Mui-focused.focused {
+  background-color: lightblue;
+}
+.card {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  min-width: 0;
+  position: relative;
+  word-wrap: break-word;
+  width: 100%;
+  .card-header {
+  background-image: linear-gradient(to right, #65686b, #cfd9dc);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom-width: 1px;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 0.65rem;
+    height: 3.5rem;
+    border-bottom: 1px solid rgba(26, 54, 126, 0.125);
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    box-shadow: 0px 2px 5px black;
+    border-radius: 20px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    .card-header-title {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      font-size: 1.1rem;
+      font-weight: 400;
+    }
+    .card-actions {
+      margin-left: auto;
+      white-space: nowrap;
+    }
+  }
+  .card-body {
+    padding: 2rem;
+  }
+}
+.gradient {
+  // Esto creará un linear gradiente de arriba hacia abajo
+  background-image: linear-gradient(to bottom, #dee5e5, #dce0e1);
+  // Puedes ajustar los colores y la dirección del gradiente según tus necesidades
+  // Por ejemplo, puedes cambiar "to bottom" a "to right" para un gradiente de izquierda a derecha
+  // También puedes ajustar los colores y agregar más si es necesario
+}
+.gradientCard {
+  // Esto creará un linear gradiente de arriba hacia abajo
+  background-image: linear-gradient(to right,rgb(134, 248, 248)e5, #455458);
+  // Puedes ajustar los colores y la dirección del gradiente según tus necesidades
+  // Por ejemplo, puedes cambiar "to bottom" a "to right" para un gradiente de izquierda a derecha
+  // También puedes ajustar los colores y agregar más si es necesario
+}
